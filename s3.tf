@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "one" {
-  bucket = "krish.143.flm.bucket"
+  bucket = "krishna.143.flm.bucket"
 }
 
 resource "aws_s3_bucket_ownership_controls" "two" {

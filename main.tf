@@ -3,7 +3,7 @@ resource "aws_launch_template" "web_server_as" {
     image_id           = "ami-068b5bc67e48209c1"
     vpc_security_group_ids = [aws_security_group.web_server.id]
     instance_type = "t3.micro"
-    key_name = "WAS-KP"
+    key_name = "monolithic_KP"
     tags = {
         Name = "DevOps"
     }
@@ -33,7 +33,7 @@ resource "aws_autoscaling_group" "web_server_asg" {
     desired_capacity     = 2
     health_check_type    = "EC2"
     load_balancers       = [aws_elb.web_server_lb.name]
-    availability_zones    = ["eu-north-1a", "eu-north-1b"] 
+    availability_zones    = ["eu-north-1a", "eu-north-1c"] 
     launch_template {
         id      = aws_launch_template.web_server_as.id
         version = "$Latest"
